@@ -1,5 +1,15 @@
 package com.pluralsight;
 
+import org.apache.commons.dbcp2.BasicDataSource;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 public class Program {
 
     public static void main(String[] args) {
@@ -24,7 +34,7 @@ public class Program {
                 int actorId = rs.getInt("actor_id");
                 String firstName = rs.getString("first_name");
                 String lastName = rs.getString("last_name");
-               Instant lastUpdate = rs.getTimestamp("last_update").toInstant();
+                Instant lastUpdate = rs.getTimestamp("last_update").toInstant();
                 System.out.printf("%d %s %s %s", actorId, firstName, lastName, lastUpdate.toInstant);
             }
         } catch (SQLException e) {
